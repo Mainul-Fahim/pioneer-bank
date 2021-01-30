@@ -42,7 +42,7 @@
             <div class="col-md-4">
                 <div class="withdraw status">
                     <h5>Withdraw</h5>
-                    <h2>$00</h2>
+                    <h2>$ <span id="withdrawAmount">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
@@ -99,6 +99,8 @@
             updateAmount("depositValue",depositNumber);
             updateAmount("balanceValue",depositNumber);
 
+            document.getElementById("amountDeposit").value="";
+
 
                
 
@@ -108,7 +110,11 @@
             withdraw.addEventListener("click",function(){
 
                 const numberWithdraw=getInputNumber("withdrawNumber");
-                console.log(numberWithdraw);
+                updateAmount("withdrawAmount",numberWithdraw);
+                updateAmount("balanceValue",-1*numberWithdraw);
+
+                document.getElementById("withdrawNumber").value="";
+
             })
             
 
